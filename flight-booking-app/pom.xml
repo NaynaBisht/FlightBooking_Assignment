@@ -28,6 +28,8 @@
 	</scm>
 	<properties>
 		<java.version>21</java.version>
+		<sonar.organization>naynabisht</sonar.organization>
+		<sonar.projectKey>NaynaBisht_FlightBooking_Assignment</sonar.projectKey>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -63,6 +65,35 @@
         <artifactId>mysql-connector-j</artifactId>
 <!--        <scope>runtime</scope>-->
     </dependency>
+    
+    <!-- JUnit 5 -->
+    <dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter</artifactId>
+        <version>5.10.0</version>
+        <scope>test</scope>
+    </dependency>
+
+    <!-- Mockito for mocking services/controllers -->
+    <dependency>
+        <groupId>org.mockito</groupId>
+        <artifactId>mockito-core</artifactId>
+        <version>5.5.0</version>
+        <scope>test</scope>
+    </dependency>
+
+    <!-- Spring Boot Test -->
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-test</artifactId>
+        <scope>test</scope>
+        <exclusions>
+            <exclusion>
+                <groupId>org.junit.vintage</groupId>
+                <artifactId>junit-vintage-engine</artifactId>
+            </exclusion>
+        </exclusions>
+    </dependency>
 	</dependencies>
 
 	<build>
@@ -91,6 +122,25 @@
 					</excludes>
 				</configuration>
 			</plugin>
+			<plugin>
+            <groupId>org.jacoco</groupId>
+            <artifactId>jacoco-maven-plugin</artifactId>
+            <version>0.8.10</version>
+            <executions>
+                <execution>
+                    <goals>
+                        <goal>prepare-agent</goal>
+                    </goals>
+                </execution>
+                <execution>
+                    <id>report</id>
+                    <phase>prepare-package</phase>
+                    <goals>
+                        <goal>report</goal>
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>
 		</plugins>
 	</build>
 

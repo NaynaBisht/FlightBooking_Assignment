@@ -54,6 +54,4 @@ public class Booking {
     private List<Passenger> passengers;
     
     private String status= "BOOKED";
-
-
 }
