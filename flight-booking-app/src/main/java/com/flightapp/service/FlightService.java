@@ -62,7 +62,7 @@ public class FlightService {
                 info.setPrice(flight.getPrice());
                 info.setTotalPrice(flight.getPrice() * passengerCount);
                 
-                info.setAvailableSeats(flight.getAvailableSeats());
+                info.setAvailableSeats(flight.getTotalSeats());
                 info.setTravelClass(flight.getTravelClass());
                 
                 info.setNonstop(flight.isNonStop());

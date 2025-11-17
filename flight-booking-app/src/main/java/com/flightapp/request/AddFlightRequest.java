@@ -31,11 +31,8 @@ public class AddFlightRequest {
     @Min(value = 100, message = "Price must be at least ₹100")
     private float price;
 
-    @Min(value = 5, message = "Total seats must be greater than 4")
+    @Min(1)
     private int totalSeats;
-
-    @Min(value = 0, message = "Available seats cannot be negative")
-    private int availableSeats;
 
     private String travelClass;
     
