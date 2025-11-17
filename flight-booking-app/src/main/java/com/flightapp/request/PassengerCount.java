@@ -6,6 +6,9 @@ public class PassengerCount {
 	
 	@Min(1)
 	private int adults;
+
+	@Min(0)
+	private int children;
 	
 	public int getAdults() {
 		return adults;
@@ -22,8 +25,9 @@ public class PassengerCount {
 	public void setChildren(int children) {
 		this.children = children;
 	}
-
-	@Min(0)
-	private int children;
+	
+	public int getTotalPassengers() {
+        return adults + children;
+    }
 
 }

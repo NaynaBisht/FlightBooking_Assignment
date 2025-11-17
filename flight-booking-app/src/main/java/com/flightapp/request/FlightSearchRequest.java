@@ -1,10 +1,8 @@
 package com.flightapp.request;
 
 import java.time.LocalDate;
-
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 public class FlightSearchRequest {
 
@@ -14,7 +12,7 @@ public class FlightSearchRequest {
 	@NotBlank(message = "Arrival airport is required")
 	private String arrivalAirport;
 	
-	@NotBlank(message = "Departure date is required")
+	@NotNull(message = "Departure date is required")
 	private LocalDate departDate;
 	
 	private LocalDate returnDate;
@@ -22,8 +20,14 @@ public class FlightSearchRequest {
 	@NotBlank(message = "Trip type is required")
     private String tripType = "ONE_WAY";
 	
+	@NotNull(message = "Passenger details are required")
     private PassengerCount passengers;
 	
+
+	public PassengerCount getPassengers() {
+		return passengers;
+	}
+
 	public void setPassengers(PassengerCount passengers) {
 		this.passengers = passengers;
 	}
