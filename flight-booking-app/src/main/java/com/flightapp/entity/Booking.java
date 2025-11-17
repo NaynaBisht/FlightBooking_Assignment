@@ -52,5 +52,8 @@ public class Booking {
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "booking_id")
     private List<Passenger> passengers;
+    
+    private String status= "BOOKED";
+
 
 }

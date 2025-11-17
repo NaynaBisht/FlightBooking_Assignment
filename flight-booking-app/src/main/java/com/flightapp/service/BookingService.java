@@ -97,4 +97,25 @@ public class BookingService {
         return response;
     	
     }
+    
+    public Booking getBookingByPnr(String pnr) {
+    	return bookingRepository.findByPnr(pnr)
+    			.orElseThrow(() -> new RuntimeException("Booking not found for PNR: " + pnr));
+    }
+
+    public List<Booking> getBookingHistoryByEmailId(String emailId) {
+        return bookingRepository.findByEmailId(emailId);
+    }
+    
+    public String cancelBooking(String pnr) {
+        Booking booking = bookingRepository.findByPnr(pnr)
+                .orElseThrow(() -> new RuntimeException("PNR not found"));
+
+        booking.setStatus("CANCELLED");
+        bookingRepository.save(booking);
+
+        return "Booking cancelled successfully for PNR: " + pnr;
+    }
+
+
 }
